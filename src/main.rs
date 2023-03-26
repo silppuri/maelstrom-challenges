@@ -21,6 +21,9 @@ fn handle_message(message: Value, nodes: &mut HashMap<String, Node>) -> () {
                 "init" => node.respond_to_init_message(&message),
                 "echo" => node.respond_to_echo_message(&message),
                 "generate" => node.respond_to_generate_message(&message),
+                "broadcast" => node.handle_broadcast_message(&message),
+                "read" => node.handle_read_message(&message),
+                "topology" => node.handle_topology_message(&message),
                 "error" => {
                     panic!("Error {}", message)
                 }
