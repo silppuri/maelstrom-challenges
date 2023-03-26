@@ -22,15 +22,14 @@ fn handle_message(message: Value, nodes: &mut HashMap<String, Node>) -> () {
                 "echo" => node.respond_to_echo_message(&message),
                 "generate" => node.respond_to_generate_message(&message),
                 "error" => {
-                    println!("ERROR: {}", message);
-                    panic!()
+                    panic!("Error {}", message)
                 }
                 _ => {
                     todo!()
                 }
             }
         } else {
-            panic!("No proper node found")
+            panic!("No proper node found for message {}", message)
         }
     }
 }
